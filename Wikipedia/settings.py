@@ -13,8 +13,8 @@ SPIDER_MODULES = ['Wikipedia.spiders']
 NEWSPIDER_MODULE = 'Wikipedia.spiders'
 
 #Export as CSV Feed
-FEED_FORMAT = "csv"
-FEED_URI = "extract.csv"
+#FEED_FORMAT = "csv"
+#FEED_URI = "extract.csv"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'Wikipedia (+http://www.yourdomain.com)'
