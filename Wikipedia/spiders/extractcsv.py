@@ -8,7 +8,7 @@ class ExtractcsvSpider(scrapy.Spider):
     start_urls = ['']
     '''Urls dynamically appended to a text file from where we add them to start urls'''
 
-    for url in open("./spiders/wikiurl.txt"):
+    for url in open("Wikipedia/spiders/wikiurl.txt"):
         start_urls.append(url)
 
     def reformat_url(self, url):
@@ -48,9 +48,9 @@ class ExtractcsvSpider(scrapy.Spider):
 def convertCSV(list_tables):
     i = 0
     for table in list_tables:
-        for url in open("./spiders/wikiurl.txt"):
+        for url in open("Wikipedia/spiders/wikiurl.txt"):
             a = url + str(i)
-            with open('./spiders/tmp/' + a + '.csv', 'w') as csvfile:
+            with open('Wikipedia/spiders/tmp/' + a + '.csv', 'w', encoding='utf-8') as csvfile:
                 csv_writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
                 for row in table:
                     csv_writer.writerow(row)
