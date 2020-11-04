@@ -1,7 +1,6 @@
 import scrapy
 import csv
 
-
 class ExtractcsvSpider(scrapy.Spider):
     name = 'extractcsv'
     allowed_domains = ['wikipedia.org']
