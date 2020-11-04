@@ -13,8 +13,8 @@ class ExtractcsvSpider(scrapy.Spider):
 
     def reformat_url(self, url):
         ''' Manipulate url to structure to proper format or extract some information from it'''
-        url = 'https://en.wikipedia.org/wiki/' +  url
-        return url
+        newurl = 'https://en.wikipedia.org/wiki/' +  url
+        return newurl
 
     def start_requests(self):
 
@@ -48,9 +48,10 @@ class ExtractcsvSpider(scrapy.Spider):
 def convertCSV(list_tables):
     i = 0
     for table in list_tables:
-        a = str(i)
-        with open('./spiders/tmp/france' + a + '.csv', 'w') as csvfile:
-            csv_writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
-            for row in table:
-                csv_writer.writerow(row)
+        for url in open("./spiders/wikiurl.txt"):
+            a = url + str(i)
+            with open('./spiders/tmp/' + a + '.csv', 'w') as csvfile:
+                csv_writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
+                for row in table:
+                    csv_writer.writerow(row)
             i += 1
