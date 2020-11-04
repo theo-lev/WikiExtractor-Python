@@ -28,11 +28,11 @@ class ExtractcsvSpider(scrapy.Spider):
         list_tables = response.css('table.wikitable')
 
         for table in list_tables:
-            list_rows = table.xpath('./tbody/tr')
+            list_rows = table.css("tr")
             new_table = []
 
             for row in list_rows:
-                new_row = row.xpath('.//text()[not(ancestor::sup or ancestor::span/@class="flagicon")]').extract()
+                new_row = row.css("th::text,th a::text,td::text, td a::text").extract()
                 new_row = [element.strip('\n') for element in new_row]
                 while '\n' in new_row:
                     new_row.remove('\n')
