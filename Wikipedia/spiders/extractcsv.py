@@ -17,9 +17,11 @@ class ExtractcsvSpider(scrapy.Spider):
     allowed_domains = ['wikipedia.org']
     name_pages = []
     stats = []
+    numberHtmlTables = 0
 
     def closed(self, _):
         stats = self.crawler.stats.get_stats()
+        stats['numberHtmlTables'] = self.numberHtmlTables
         end_execution(stats)
 
     def start_requests(self):
@@ -37,6 +39,7 @@ class ExtractcsvSpider(scrapy.Spider):
 
         for table in list_tables:
             list_new_tables.append(parse_table(table))
+            self.numberHtmlTables += 1
 
         convertCSV(name_page, list_new_tables)
 
@@ -168,14 +171,16 @@ def convertCSV(name_page, list_tables):
 
 
 def end_execution(stats):
-
     # You can modify scrapy log display in settings.py
     # LOG_ENABLED = True and adjust with LOG_LEVEL
 
     print('-- STATS --')
-    print('EXECUTION TIME : ' + str(stats['elapsed_time_seconds']))
+    print('EXECUTION TIME : ' + str(stats['elapsed_time_seconds']) + 'seconds')
     print('TOTAL URL : ' + str(stats['downloader/request_count'] - stats['robotstxt/request_count']))
     print('NUMBER CORRECT URL : ' +
           str(stats['downloader/response_status_count/200'] - stats['robotstxt/request_count']))
     if stats['httperror/response_ignored_count'] is not None:
         print('NUMBER IGNORED URL : ' + str(stats['httperror/response_ignored_count']))
+    print('NUMBER OF EXTRACTED HTML TABLES : ' + str(stats['numberHtmlTables']))
+
+
