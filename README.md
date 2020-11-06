@@ -13,3 +13,14 @@ Then, we will be able to compare the two extractors.
 
 Wikipedia's pages were write in two language, HTML and Wikitext. Unlike the extractor "Wikipedia Matrix", 
 this extractor read and analyze Wikipedia pages only in HTML format.
+
+# Objectives
+## Improvement of extractors
+Get better extractions (comparisons), more precise tests.
+
+## Tools to evaluate our extractors
+Develop new tools which allow us to evaluate the quality and the performance of extractors. 
+Develop a tool which allow us to evaluate the best extractor between Java and Python.
+
+## Getting started 
+Make the project easy to use by anyone thanks to a complete and functional dataset and a clear documentation to launch it.
