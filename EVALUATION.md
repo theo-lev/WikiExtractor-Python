@@ -31,4 +31,58 @@ Like we said before, we have to compare the number of good extraction.
 
 ### Problems explanation
 
-#### 
+#### Heads of rows
+
+On the Java extractor, there is a problem for the header extraction of rows.
+
+Below, you can see first the good extraction with WikiText extractor :
+
+```
+Present tense infinitive,-ar (irar)
+Past tense infinitive,-ir (irir)
+Future tense infinitive,-or (iror)
+```
+
+And now, this is the result of the HTML Extractor : 
+
+```
+Infinitive,-ar (irar)
+Infinitive,-ir (irir)
+Infinitive,-or (iror)
+```
+
+With HTML, there isn't an entire extraction of headers row.
+
+#### Link cells
+
+Sometimes, contributors of Wikipedia can link a value to an other Wikipedia page.
+Like the header line, both extractors do not work properly at this level. 
+
+WikiText result (right): 
+
+```
+IPA phonemes,a,b
+```
+
+HTML result : 
+
+```
+International Phonetic Alphabet International Phonetic Alphabet,Open front unrounded vowel,Voiced bilabial plosive
+```
+
+#### HTML attributes
+
+For the extraction with Java code, there is a bug which isn't recurring. 
+Extractor extract, sometimes, HTML attributes. Exemple : 
+
+```
+irgatempe,|nulatempe,,style="background: #d8ffd8" | omnatempe, sempre
+```
+
+For extraction with Python code, there is another bug. 
+The extractor does not convert special characters. Exemple :
+```
+Letter Å in names are not translated in the link #6
+Letter é in names are not translated in the link #11
+
+```
