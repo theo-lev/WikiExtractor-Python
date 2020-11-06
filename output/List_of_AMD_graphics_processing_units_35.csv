@@ -1,0 +1,5 @@
+Model (codename),Release Date & Price,Architecture & Fab,Transistors & Die Size,Core,Core,Fillrate[a][b][c],Fillrate[a][b][c],Processing power[a][d] (GFLOPS),Processing power[a][d] (GFLOPS),Processing power[a][d] (GFLOPS),Memory,Memory,Memory,Memory,TBP,Bus interface
+Model (codename),Release Date & Price,Architecture & Fab,Transistors & Die Size,Config[e],Clock[a] (MHz),Texture (GT/s),Pixel (GP/s),Half,Single,Double,Size (GB),Bandwidth (GB/s),Bus type & width,Clock (MT/s),TBP,Bus interface
+Radeon RX 6800 (Navi 21) [137][138],"November 18, 2020 $579 USD",RDNA 2 TSMC N7,26.8×109 Unknown size,3840:240:96 60 CU,1815 2105,505.2,202.1,"32,333","16,166",,16,512,GDDR6 256-bit,16000,250 W,PCIe 4.0
+Radeon RX 6800 XT (Navi 21) [137][138],"November 18, 2020 $649 USD",RDNA 2 TSMC N7,26.8×109 Unknown size,4608:288:128 72 CU,2015 2250,648,288,"41,470","20,740",,16,512,GDDR6 256-bit,16000,300 W,PCIe 4.0
+Radeon RX 6900 XT (Navi 21) [137][138],"December 8, 2020 $999 USD",RDNA 2 TSMC N7,26.8×109 Unknown size,5120:320:128 80 CU,2015 2250,720,288,"46,080","23,040",,16,512,GDDR6 256-bit,16000,300 W,PCIe 4.0

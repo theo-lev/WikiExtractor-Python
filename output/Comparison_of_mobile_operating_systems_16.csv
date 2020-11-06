@@ -1,0 +1,8 @@
+Feature,Android,iOS,Tizen,Sailfish OS,Ubuntu Touch
+Non-intrusive incoming calls,5+[386] or 3rd party software[387],14+[388],No,No[389],?
+Non-intrusive notifications,Yes[390],5+[107],?,?,?
+Move apps to external storage,2.2+[391],External storage not allowed for apps,No,No,No
+Remote Frame Buffer (RFB) protocol,Yes[392],3rd party software[393],?,?,?
+Screencast on device,11+[394],9+[395],No,No,Yes
+Screencast over USB,"4.4+ over USB,[121] for prior versions root required for 3rd party app[396]",8+: on OS X[397],No,?,No
+Screen share,On select devices using vendor's implementation[398][399][400],3rd party software[401],No,No,No
