@@ -2,11 +2,39 @@ import unittest
 import os
 from Tests.function_number import IteratorURL
 
+#TESTS
 
 class MyTestCase(unittest.TestCase):
 
-    def test_something(self):
+    def test_link1(self):
         self.assertEqual(8, IteratorURL('Comparison_between_Esperanto_and_Ido'))
+
+    def test_link2(self):
+        self.assertEqual(3, IteratorURL('Comparison_between_Esperanto_and_Interlingua'))
+
+    def test_link3(self):
+        self.assertEqual(5, IteratorURL('Comparison_between_Esperanto_and_Novial'))
+
+    def test_link4(self):
+        self.assertEqual(2, IteratorURL('Comparison_between_Ido_and_Interlingua'))
+
+    def test_link5(self):
+        self.assertEqual(2, IteratorURL('Comparison_between_Ido_and_Novial'))
+
+    def test_link6(self):
+        self.assertEqual(1, IteratorURL('Comparison_between_U.S._states_and_countries_by_GDP_(PPP)'))
+
+    def test_link7(self):
+        self.assertEqual(1, IteratorURL('Comparison_of_ALGOL_68_and_C++'))
+
+    def test_link8(self):
+        self.assertEqual(3, IteratorURL('Comparison_of_Afrikaans_and_Dutch'))
+
+    def test_link9(self):
+        self.assertEqual(6, IteratorURL('Comparison_of_Android_e-book_reader_software'))
+
+    def test_link10(self):
+        self.assertEqual(40, IteratorURL('Comparison_of_Asian_national_space_programs'))
 
     def test_link11(self):
         self.assertEqual(0, IteratorURL('Comparison_of_Axis_&_Allies_games'))

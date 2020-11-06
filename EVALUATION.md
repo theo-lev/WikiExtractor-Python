@@ -22,12 +22,10 @@ Like we said before, we have to compare the number of good extraction.
 ## List of problems
 |<h3>Problems </h3>| <h3>Java Extractor</h3>       |  <h3>Python Extractor</h3>  |
 |:---------------:|:------------:|:------------:| 
-|Bad extract of headers of rows| X ||
-|When the value of cells is a link, it extract the content| X |X|
-|Merged cells create a new column for each rows| X | X |
-|When cells are merged, only one row include the value| X | X |
-|Some cells in colors extract the color attribute|| X |
-|When the value of cells is "?", it extract "dunno"|X |  |
+|Bad extract of headers of rows| X |✔|
+|When the value of cells is a link, it extract the content| X | ✔|
+|Merged cells create a new column for each rows| X | ✔ |
+|When cells are merged, only one row include the value| X | ✔ |
 
 ### Problems explanation
 
