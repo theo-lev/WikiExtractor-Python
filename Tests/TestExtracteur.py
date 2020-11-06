@@ -45,7 +45,7 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(83, IteratorURL('List_of_AMD_graphics_processing_units'))
 
     def test_link327(self):
-        self.assertEqual(12, IteratorURL('List_of_Intel_graphics_processing_units'))
+        self.assertEqual(13, IteratorURL('List_of_Intel_graphics_processing_units'))
 
     def test_link329(self):
         self.assertEqual(20, IteratorURL('Comparison_of_Nvidia_chipsets'))
