@@ -1,14 +1,23 @@
 ## Installation with PyCharm 
 To execute this project, you will have to use an IDE. This documentation is for PyCharm. The language use is Python and 
-you need to install libraries Scrapy and csv. 
+you need to install libraries Scrapy, csv and unittest. 
 
 Requirements : 
 - [PyCharm](https://www.jetbrains.com/fr-fr/pycharm/)
 - [Python](https://www.python.org/)
 
 Before starting, to install Scrapy :
+
+### For Linux
 - Open a terminal and copy "sudo apt install python-pip"
 - Then copy "pip install Scrapy"
+
+### For Windows
+- Install Anaconda or Miniconda to use conda forge. 
+- Open a terminal and copy "conda install -c conda-forge scrapy"
+- Check to change your interpreter with Settings > Project : WikiMatrixChallenge > Project Interpreter and choose your python version with Anaconda logo
+
+You can see scrapy is add to libraries.
 
 Start by opening PyCharm and close all opened projects. Then get the project with the HTTPS link :
 - Click "Get from Version Control"
@@ -44,3 +53,7 @@ scrapy crawl extractcsv
 ```
 
 in the terminal.
+
+Be careful ! 
+If you have an error like "no such file or directory" when you run extractcsv, check the path in function open.
+If there is "./spider/..." the point is the root, so, in PyCharm Terminal copy "cd Wikipedia".
