@@ -98,7 +98,7 @@ def parse_table(table):
 
 def parse_extract_cell(cell):
     """
-
+    Extract and parse cell
     :param cell:
     :return:
     """
@@ -109,9 +109,13 @@ def parse_extract_cell(cell):
 
     sel = Selector(text=cell)
 
+    link_images = sel.xpath('.//img/@src').extract()  # extract images link
     new_cell = sel.xpath('string(.)').extract()[0]  # extract string for every child in cell
     new_cell = new_cell.replace(u'\xa0', ' ')
     new_cell = new_cell.rstrip('\n')
+
+    for link in link_images:
+        new_cell = new_cell + " " + link  # add every link images at the end of the cell
 
     return new_cell
 
