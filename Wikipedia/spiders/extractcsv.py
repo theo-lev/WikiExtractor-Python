@@ -1,21 +1,26 @@
-import scrapy
 import csv
+import os
+import re
 
+import scrapy
 from scrapy import Request, Selector
-
 from Wikipedia.spiders import convertURL
-
-"""
-ExtractcsvSpider : Class
-Contains all methods to parse a wikipedia table
-cmd : scrapy crawl extractcsv
-"""
 
 
 class ExtractcsvSpider(scrapy.Spider):
+    """
+    ExtractcsvSpider : Class
+    Contains all methods to parse a wikipedia table
+    cmd : scrapy crawl extractcsv
+    """
     name = 'extractcsv'
     allowed_domains = ['wikipedia.org']
     name_pages = []
+    stats = []
+
+    def closed(self, _):
+        stats = self.crawler.stats.get_stats()
+        end_execution(stats)
 
     def start_requests(self):
         for url in convertURL.getConvertUrl():
@@ -120,10 +125,17 @@ def getRowColSpan(cell):
         res = cell.xpath('string(@rowspan)').extract()
         if res is not None and res[0] != '':
             rowSpan = res[0]
+            rowSpan = int(re.findall(r'(\d+)', rowSpan)[0])
+            if rowSpan is None:
+                rowSpan = 1
         res = cell.xpath('string(@colspan)').extract()
         if res is not None and res[0]:
             colSpan = res[0]
-    return int(rowSpan), int(colSpan)
+            colSpan = int(re.findall(r'(\d+)', colSpan)[0])
+            if colSpan is None:
+                colSpan = 1
+
+    return rowSpan, colSpan
 
 
 def getMaxColumns(rows):
@@ -141,12 +153,27 @@ def getMaxColumns(rows):
 
 
 def convertCSV(name_page, list_tables):
+    actualDir = os.path.dirname(os.path.realpath('__file__'))
+    dirOutput = os.path.abspath(actualDir + '/../output')
+
     i = 0
     for table in list_tables:
         a = str(i)
-        with open('../output/' + name_page + '_' + a + '.csv', 'w', newline='', encoding='utf-8') as csvFile:
+        with open(os.path.join(dirOutput, name_page) + '_' + a + '.csv', 'w', newline='', encoding='utf-8') as csvFile:
             csv_writer = csv.writer(csvFile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
             for row in table:
                 csv_writer.writerow(row)
 
         i += 1
+
+
+def end_execution(stats):
+
+    # You can modify scrapy log display in settings.py
+    # LOG_ENABLED = True and ajust with LOG_LEVEL
+
+    print('-- STATS --')
+    print('EXECUTION TIME : ' + str(stats['elapsed_time_seconds']))
+    print('TOTAL URL : ' + str(stats['downloader/request_count']))
+    print('NUMBER CORRECT URL : ' + str(stats['downloader/response_status_count/200']))
+    print('NUMBER IGNORED URL : ' + str(stats['httperror/response_ignored_count']))
