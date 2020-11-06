@@ -17,7 +17,7 @@ Like we said before, we have to compare the number of good extraction.
 | |Java|Python|
 |:----------:|:----------:|:---------:|
 |Files processed|1657|1645|
-|Elapsed time (in seconds)|165,7252|87.819747|
+|Elapsed time (in seconds)|165,7252| 136,88|
  
 ## List of problems
 |<h3>Problems </h3>| <h3>Java Extractor</h3>       |  <h3>Python Extractor</h3>  |
