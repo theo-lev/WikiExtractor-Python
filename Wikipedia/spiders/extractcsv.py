@@ -170,10 +170,12 @@ def convertCSV(name_page, list_tables):
 def end_execution(stats):
 
     # You can modify scrapy log display in settings.py
-    # LOG_ENABLED = True and ajust with LOG_LEVEL
+    # LOG_ENABLED = True and adjust with LOG_LEVEL
 
     print('-- STATS --')
     print('EXECUTION TIME : ' + str(stats['elapsed_time_seconds']))
-    print('TOTAL URL : ' + str(stats['downloader/request_count']))
-    print('NUMBER CORRECT URL : ' + str(stats['downloader/response_status_count/200']))
-    print('NUMBER IGNORED URL : ' + str(stats['httperror/response_ignored_count']))
+    print('TOTAL URL : ' + str(stats['downloader/request_count'] - stats['robotstxt/request_count']))
+    print('NUMBER CORRECT URL : ' +
+          str(stats['downloader/response_status_count/200'] - stats['robotstxt/request_count']))
+    if stats['httperror/response_ignored_count'] is not None:
+        print('NUMBER IGNORED URL : ' + str(stats['httperror/response_ignored_count']))
