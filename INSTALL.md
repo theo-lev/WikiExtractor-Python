@@ -1,3 +1,21 @@
+## Installation with PyCharm 
+To execute this project, you will have to use an IDE. This documentation is for PyCharm. The language use is Python and 
+you need to install libraries Scrapy and csv. 
+
+Requirements : 
+- [PyCharm](https://www.jetbrains.com/fr-fr/pycharm/)
+- [Python](https://www.python.org/)
+
+Before starting, to install Scrapy :
+- Open a terminal and copy "sudo apt install python-pip"
+- Then copy "pip install Scrapy"
+
+Start by opening PyCharm and close all opened projects. Then get the project with the HTTPS link :
+- Click "Get from Version Control"
+- In Repository URL, copy the URL of the project and choose the directory to save
+
+The project is ready to be execute. You can also read the part "Extract with function parse" (below).
+
 ## Extract with terminal
 
 First of all, I will show you how to extract HTML code from one 

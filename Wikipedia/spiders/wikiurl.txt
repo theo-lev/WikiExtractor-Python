@@ -333,4 +333,3 @@ Comparison_of_antivirus_software
 Comparison_of_email_clients
 Comparison_of_integrated_development_environments
 Comparison_of_layout_engines_(XHTML_1.1)
-Comparison_of_operating_system_kernels
