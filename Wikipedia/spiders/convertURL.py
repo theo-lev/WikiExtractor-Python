@@ -1,7 +1,9 @@
-i = 0
-d = open("Wikipedia/spiders/wikiurl.txt").readlines()
-for line in d:
-    d[i] = 'https://en.wikipedia.org/wiki/' + d[i]
-    d[i] = d[i].rstrip("\n")
-    i += 1
-print(d)
+def getConvertUrl():
+    listConvertUrl = []
+    totalUrl = 0
+    names = open("./spiders/wikiurl.txt").readlines()
+    for namePage in names:
+        listConvertUrl.append(('https://en.wikipedia.org/wiki/'+namePage).rstrip("\n"))
+        totalUrl += 1
+        print(str(totalUrl) + ' lines convert in url.')
+    return listConvertUrl
