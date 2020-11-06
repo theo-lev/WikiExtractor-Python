@@ -1,22 +1,26 @@
-# Extractors evaluation
-During this project, two types of extractors has been made. One of them extract tables from HTML code. 
-The other extract from WikiText code. We have to compare the performance of the two extractors. 
-The first comparison will be on the number of URL processed. 
-The other comparison will be on the quality of the extraction.
+# # Extractors evaluation from Java to Python
+In this project, it is about extracting tables from HTML code. To do this, two types of extractors have been made, one in Java and the other in Python. We have to compare the performances of the two extractors. 
+The first comparison will focus on the number of URLs processed. 
+The other comparison will be about the quality of the extraction.
 
 ## Number of extraction
 
 Like we said before, we have to compare the number of good extraction.
-There is 303 URL processed for 336 in total.
+
+|Extraction|Java|Python|
+|:----------:|:---------:|:---------:|
+|Url processed|303|305|
+|Total Url|336| 336|
 
 ### Comparison
 
-|HTML Extraction|WikiText Extraction|
-|:----------:|:---------:|
-|1657|1049|
+| |Java|Python|
+|:----------:|:----------:|:---------:|
+|Files processed|1657|1645|
+|elapsed time seconds|165,7252|87.819747|
  
 ## List of problems
-|<h3>Problems </h3>| <h3>HTML Extractor</h3>       |  <h3>Wikitext Extractor</h3>  |
+|<h3>Problems </h3>| <h3>Java Extractor</h3>       |  <h3>Python Extractor</h3>  |
 |:---------------:|:------------:|:------------:| 
 |Bad extract of headers of rows| X ||
 |When the value of cells is a link, it extract the content| X ||
@@ -29,7 +33,7 @@ There is 303 URL processed for 336 in total.
 
 #### Heads of rows
 
-On the HTML extractor, there is a problem for the header extraction of rows.
+On the Java extractor, there is a problem for the header extraction of rows.
 
 Below, you can see first the good extraction with WikiText extractor :
 
