@@ -7,16 +7,6 @@ class MyTestCase(unittest.TestCase):
 
     def test_something(self):
         self.assertEqual(8, IteratorURL('Comparison_between_Esperanto_and_Ido'))
-        self.assertEqual(24, IteratorURL('Comparison_of_layout_engines_(XHTML_1.1)'))
-        self.assertEqual(28, IteratorURL('Comparison_of_integrated_development_environments'))
-        self.assertEqual(11, IteratorURL('Comparison_of_email_clients'))
-        self.assertEqual(10, IteratorURL('Comparison_of_antivirus_software'))
-        self.assertEqual(21, IteratorURL('Comparison_of_TLS_implementations'))
-        self.assertEqual(84, IteratorURL('List_of_Nvidia_graphics_processing_units'))
-        self.assertEqual(20, IteratorURL('Comparison_of_Nvidia_chipsets'))
-        self.assertEqual(12, IteratorURL('List_of_Intel_graphics_processing_units'))
-        self.assertEqual(83, IteratorURL('List_of_AMD_graphics_processing_units'))
-        self.assertEqual(16, IteratorURL('Comparison_of_programming_languages_(basic_instructions)'))
 
     def test_link11(self):
         self.assertEqual(0, IteratorURL('Comparison_of_Axis_&_Allies_games'))
@@ -47,6 +37,36 @@ class MyTestCase(unittest.TestCase):
 
     def test_link20(self):
         self.assertEqual(1, IteratorURL('Comparison_of_MD_and_DO_in_the_United_States'))
+
+    def test_link324(self):
+        self.assertEqual(16, IteratorURL('Comparison_of_programming_languages_(basic_instructions)'))
+
+    def test_link325(self):
+        self.assertEqual(83, IteratorURL('List_of_AMD_graphics_processing_units'))
+
+    def test_link327(self):
+        self.assertEqual(12, IteratorURL('List_of_Intel_graphics_processing_units'))
+
+    def test_link329(self):
+        self.assertEqual(20, IteratorURL('Comparison_of_Nvidia_chipsets'))
+
+    def test_link330(self):
+        self.assertEqual(84, IteratorURL('List_of_Nvidia_graphics_processing_units'))
+
+    def test_link331(self):
+        self.assertEqual(21, IteratorURL('Comparison_of_TLS_implementations'))
+
+    def test_link332(self):
+        self.assertEqual(10, IteratorURL('Comparison_of_antivirus_software'))
+
+    def test_link333(self):
+        self.assertEqual(11, IteratorURL('Comparison_of_email_clients'))
+
+    def test_link334(self):
+        self.assertEqual(28, IteratorURL('Comparison_of_integrated_development_environments'))
+
+    def test_link335(self):
+        self.assertEqual(24, IteratorURL('Comparison_of_layout_engines_(XHTML_1.1)'))
 
 if __name__ == '__main__':
     unittest.main()
