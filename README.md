@@ -24,3 +24,22 @@ Develop a tool which allow us to evaluate the best extractor between Java and Py
 
 ## Getting started 
 Make the project easy to use by anyone thanks to a complete and functional dataset and a clear documentation to launch it.
+
+## Functionnality of the project
+The software takes a file with a list of wikipedia's pages title (taken from the page URL : with "_" in place of " ") 
+and process each one to get the HTML URL of the page. After testing the URL, it treats all the HTML code 
+of each page and try to extract as much table as it can in CSV.
+
+## Project license
+This project is licensed under the MIT License.
+
+## Technologies used
+- Git – The distributed version-control system used
+- PyCharm IDEA - The IDE mainly used by our crew
+- IntelliJ IDEA - The IDE used last year
+- Scrapy - Python library to extract HTML 
+- csv - Python library to write in CSV
+- UniTest - Python library to make uni tests
+
+## Authors
+Clément Depond, Adèle Lecler, Théo Lévêque, Sadou Barry, Jean Zamble.
