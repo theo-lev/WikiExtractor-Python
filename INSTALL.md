@@ -6,7 +6,7 @@ Requirements :
 - [PyCharm](https://www.jetbrains.com/fr-fr/pycharm/)
 - [Python](https://www.python.org/)
 
-Before starting, to install Scrapy :
+Before starting, to [install](https://docs.scrapy.org/en/latest/intro/install.html) Scrapy :
 
 ### For Linux
 - Open a terminal and copy "sudo apt install python-pip"
