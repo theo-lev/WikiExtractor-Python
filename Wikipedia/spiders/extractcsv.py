@@ -113,9 +113,13 @@ def parse_extract_cell(cell):
     new_cell = sel.xpath('string(.)').extract()[0]  # extract string for every child in cell
     new_cell = new_cell.replace(u'\xa0', ' ')
     new_cell = new_cell.rstrip('\n')
+    new_cell = new_cell.strip()
 
     for link in link_images:
-        new_cell = new_cell + " " + link  # add every link images at the end of the cell
+        if new_cell != "":
+            new_cell = new_cell + " " + link.strip()  # add every link images at the end of the cell
+        else:
+            new_cell = link.strip()
 
     return new_cell
 
