@@ -24,7 +24,7 @@ class ExtractcsvSpider(scrapy.Spider):
         super(ExtractcsvSpider, self).__init__(*args, **kwargs)
         if page is not None:
             self.parseList = False
-            self.start_urls = [f'https://en.wikipedia.org/wiki/{page}']
+            self.start_urls = [page]
 
     def closed(self, _):
         stats = self.crawler.stats.get_stats()
