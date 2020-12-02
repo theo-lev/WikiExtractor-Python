@@ -1,10 +1,10 @@
 import csv
 import os
 import re
-
 import scrapy
 from scrapy import Request, Selector
 from Wikipedia.spiders import convertURL
+from definitions import ROOT_DIR
 
 
 class ExtractcsvSpider(scrapy.Spider):
@@ -18,6 +18,13 @@ class ExtractcsvSpider(scrapy.Spider):
     name_pages = []
     stats = []
     numberHtmlTables = 0
+    parseList = True
+
+    def __init__(self, page=None, *args, **kwargs):
+        super(ExtractcsvSpider, self).__init__(*args, **kwargs)
+        if page is not None:
+            self.parseList = False
+            self.start_urls = [f'https://en.wikipedia.org/wiki/{page}']
 
     def closed(self, _):
         stats = self.crawler.stats.get_stats()
@@ -25,8 +32,12 @@ class ExtractcsvSpider(scrapy.Spider):
         end_execution(stats)
 
     def start_requests(self):
-        for url in convertURL.getConvertUrl():
-            yield Request(url, dont_filter=True)
+        if self.parseList:
+            for url in convertURL.getConvertUrl():
+                yield Request(url, dont_filter=True)
+        else:
+            for url in self.start_urls:
+                yield Request(url, dont_filter=True)
 
     def parse(self, response, **kwargs):
         name_page = response.request.url.replace('https://en.wikipedia.org/wiki/', '')
@@ -164,8 +175,7 @@ def getMaxColumns(rows):
 
 
 def convertCSV(name_page, list_tables):
-    actualDir = os.path.dirname(os.path.realpath('__file__'))
-    dirOutput = os.path.abspath(actualDir + '/../output')
+    dirOutput = os.path.join(ROOT_DIR, 'output')
 
     i = 0
     for table in list_tables:
@@ -183,12 +193,20 @@ def end_execution(stats):
     # LOG_ENABLED = True and adjust with LOG_LEVEL
 
     print('-- STATS --')
-    print('EXECUTION TIME : ' + str(stats['elapsed_time_seconds']) + 'seconds')
-    print('TOTAL URL : ' + str(stats['downloader/request_count'] - stats['robotstxt/request_count']))
-    print('NUMBER CORRECT URL : ' +
-          str(stats['downloader/response_status_count/200'] - stats['robotstxt/request_count']))
-    if stats['httperror/response_ignored_count'] is not None:
+    if 'elapsed_time_seconds' in stats and stats['elapsed_time_seconds'] is not None:
+        print('EXECUTION TIME : ' + str(stats['elapsed_time_seconds']) + 'seconds')
+
+    if 'downloader/request_count' in stats and stats['downloader/request_count'] is not None \
+            and 'robotstxt/request_count' in stats and stats['robotstxt/request_count'] is not None:
+        print('TOTAL URL : ' + str(stats['downloader/request_count'] - stats['robotstxt/request_count']))
+
+    if 'downloader/response_status_count/200' in stats and stats['downloader/response_status_count/200'] is not None \
+            and 'robotstxt/request_count' in stats and stats['robotstxt/request_count'] is not None:
+        print('NUMBER CORRECT URL : ' +
+              str(stats['downloader/response_status_count/200'] - stats['robotstxt/request_count']))
+
+    if 'httperror/response_ignored_count' in stats and stats['httperror/response_ignored_count'] is not None:
         print('NUMBER IGNORED URL : ' + str(stats['httperror/response_ignored_count']))
-    print('NUMBER OF EXTRACTED HTML TABLES : ' + str(stats['numberHtmlTables']))
 
-
+    if 'numberHtmlTables' in stats and stats['numberHtmlTables'] is not None:
+        print('NUMBER OF EXTRACTED HTML TABLES : ' + str(stats['numberHtmlTables']))
